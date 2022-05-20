@@ -16,7 +16,7 @@ const Hive= (props) => {
     }, [])
     const fetchHives = async () => {
         try {
-            let response = await axios.get(`http://127.0.0.1:8000/api/hives/`, {
+            let response = await axios.get(`http://127.0.0.1:8000/api/hives/`,  {
             headers: {
                 Authorization: "Bearer " + token,
             },
@@ -34,7 +34,7 @@ const Hive= (props) => {
     return (
         <div className="container">
             <h1>List of Hives</h1>
-            <p><DisplayHives hives={hives}/></p>
+            <DisplayHives hives={hives}/>
             
         </div>
       );

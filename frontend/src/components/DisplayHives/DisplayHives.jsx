@@ -1,25 +1,26 @@
 import React from "react";
-import Hive from "../Hive/Hive"
+
 
 const DisplayHives = (props) => {
     
     return ( 
-        <div>
+        <>
            
             <table>
                 <tbody>
                     {props.hives.map((hives)=> {
                         return(
-                            <tr >
+                            <tr key={hives.id}>
                             <td>{hives.id}</td>
                             <td>{hives.hive_number}</td>
-                            <td>{hives.inspection_date}</td>
+                            <td>{hives.inspection_date}  <button>More Info</button></td>
+                            
                             </tr>
                         )
                     })}
                 </tbody>
             </table>
-        </div>
+        </>
      );
 }
  
