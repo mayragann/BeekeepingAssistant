@@ -24,13 +24,8 @@ const AddHivePage = () =>{
             })
             navigate("/")
         } catch (error) {
-            
         }
-
     }
-
-
-
 
     return(
         <div className="container">
@@ -47,19 +42,14 @@ const AddHivePage = () =>{
                 <label>
                     Inspection Date:{""}
                     <input
-                        type="text"
-                        name="inspection"
+                        type="date"
+                        name="inspection_date"
                         value={formData.inspection_date}
                         onChange={handleInputChange}
                         />
                 </label>
-                <button>Add Hive!</button>
-
-
+                <button type="submit">Add Hive!</button>
             </form>
-
-
-
         </div>
     )
 
