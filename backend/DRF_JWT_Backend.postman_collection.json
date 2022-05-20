@@ -1,8 +1,9 @@
 {
 	"info": {
-		"_postman_id": "d4409d57-7119-4339-bfae-1f3a18bc6341",
+		"_postman_id": "178785a6-24af-4252-b31e-dfebcb397812",
 		"name": "DRF_JWT_Backend",
-		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "20282667"
 	},
 	"item": [
 		{
@@ -15,7 +16,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n    \"username\": \"dantheman\",\r\n    \"password\": \"password1@\",\r\n    \"email\": \"dan@devcodecamp.com\",\r\n    \"first_name\": \"Daniel\",\r\n    \"last_name\": \"Tulpa\"\r\n}",
+							"raw": "{\r\n    \"username\": \"beeman\",\r\n    \"password\": \"password1@\",\r\n    \"email\": \"bee@devcodecamp.com\",\r\n    \"first_name\": \"Daniel\",\r\n    \"last_name\": \"Tulpa\"\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -49,7 +50,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n    \"username\": \"dantheman\",\r\n    \"password\": \"password1@\"\r\n}",
+							"raw": "{\r\n    \"username\": \"beeman\",\r\n    \"password\": \"password1@\"\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -151,7 +152,7 @@
 						"header": [
 							{
 								"key": "Authorization",
-								"value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNjQ4MTU2ODM5LCJpYXQiOjE2NDcyOTI4MzksImp0aSI6ImJjYzJhZTUzOTRlYzQ3OThiNjI0YTcwYTYzYjcxOThmIiwidXNlcl9pZCI6MSwidXNlcm5hbWUiOiJqanZlZ2EiLCJmaXJzdF9uYW1lIjoiIn0.l9ATW5CpWF2TGniqVgU1I-a8LkuqgLQ4ok3tJh6asAA",
+								"value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNjUzODQxMjE1LCJpYXQiOjE2NTI5NzcyMTUsImp0aSI6ImUzOGVhNGU2YWI5MjRkMTRiYzAwNmM1YzAzZjNjMmMzIiwidXNlcl9pZCI6MiwidXNlcm5hbWUiOiJkYW50aGVtYW4iLCJmaXJzdF9uYW1lIjoiRGFuaWVsIn0.tcUxfk6lHsSNVOYZflc7Sm9lfegGFf3Chqi1sgVKWEw",
 								"type": "text"
 							}
 						],
@@ -217,6 +218,386 @@
 								"api",
 								"cars",
 								""
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Hives",
+			"item": [
+				{
+					"name": "GET hives for user (protected)",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNjUzODU4Mjg3LCJpYXQiOjE2NTI5OTQyODcsImp0aSI6ImI5OTkxZmNiNTgwODQyZGFhMDc5ZjlmMzQyNzYyMWNlIiwidXNlcl9pZCI6MywidXNlcm5hbWUiOiJiZWVtYW4iLCJmaXJzdF9uYW1lIjoiRGFuaWVsIn0.TrV_Rgj0lATa8sq3VZdET3y2xhrq7DPcssnNT_rG5U8",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://127.0.0.1:8000/api/hives/",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"hives",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "POST new Hive for user (protected)",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer             eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNjUzODQxOTg2LCJpYXQiOjE2NTI5Nzc5ODYsImp0aSI6ImJjMjVkMWMyOWNlNTQ3YTE4YWQ4NWYyYmYyODg0YjgxIiwidXNlcl9pZCI6MywidXNlcm5hbWUiOiJiZWVtYW4iLCJmaXJzdF9uYW1lIjoiRGFuaWVsIn0.GjMSj5W6FWHO6v8yShEOJ6YYivgB_yOrzL3ex8WQiM4",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\n        \"hive_number\": 4,\n        \"inspection_date\": \"2022-05-22\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://127.0.0.1:8000/api/hives/",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"hives",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "PUT update Hive for user (protected) Copy",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNjUzODQxOTg2LCJpYXQiOjE2NTI5Nzc5ODYsImp0aSI6ImJjMjVkMWMyOWNlNTQ3YTE4YWQ4NWYyYmYyODg0YjgxIiwidXNlcl9pZCI6MywidXNlcm5hbWUiOiJiZWVtYW4iLCJmaXJzdF9uYW1lIjoiRGFuaWVsIn0.GjMSj5W6FWHO6v8yShEOJ6YYivgB_yOrzL3ex8WQiM4",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n        \"hive_number\": 5,\n        \"inspection_date\": \"2022-05-20\"\n      \n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://127.0.0.1:8000/api/hives/update/7",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"hives",
+								"update",
+								"7"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Inspections",
+			"item": [
+				{
+					"name": "GET Inspection By ID (protected)",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNjUzODU4Mjg3LCJpYXQiOjE2NTI5OTQyODcsImp0aSI6ImI5OTkxZmNiNTgwODQyZGFhMDc5ZjlmMzQyNzYyMWNlIiwidXNlcl9pZCI6MywidXNlcm5hbWUiOiJiZWVtYW4iLCJmaXJzdF9uYW1lIjoiRGFuaWVsIn0.TrV_Rgj0lATa8sq3VZdET3y2xhrq7DPcssnNT_rG5U8",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://127.0.0.1:8000/api/inspections/2",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"inspections",
+								"2"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GET Inspections per hive (protected) Copy",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNjUzODQxOTg2LCJpYXQiOjE2NTI5Nzc5ODYsImp0aSI6ImJjMjVkMWMyOWNlNTQ3YTE4YWQ4NWYyYmYyODg0YjgxIiwidXNlcl9pZCI6MywidXNlcm5hbWUiOiJiZWVtYW4iLCJmaXJzdF9uYW1lIjoiRGFuaWVsIn0.GjMSj5W6FWHO6v8yShEOJ6YYivgB_yOrzL3ex8WQiM4",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://127.0.0.1:8000/api/inspections/all/1",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"inspections",
+								"all",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "POST new inspection for hive (protected)",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer             eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNjUzODQxOTg2LCJpYXQiOjE2NTI5Nzc5ODYsImp0aSI6ImJjMjVkMWMyOWNlNTQ3YTE4YWQ4NWYyYmYyODg0YjgxIiwidXNlcl9pZCI6MywidXNlcm5hbWUiOiJiZWVtYW4iLCJmaXJzdF9uYW1lIjoiRGFuaWVsIn0.GjMSj5W6FWHO6v8yShEOJ6YYivgB_yOrzL3ex8WQiM4",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n   \n    \"eggs\": 8,\n    \"larvae\": 2,\n    \"sealed_brood\": 2,\n    \"covered_bees\": 2,\n    \"nectar_honey\": 2,\n    \"pollen\": 2,\n    \"pest_spotted\": \"A million buggers\",\n    \"pest_action\": \"None\",\n    \"notes_concerns\": \"!!!!\",\n    \"hive_id\": 1\n       \n\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://127.0.0.1:8000/api/inspections/add/",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"inspections",
+								"add",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "PUT update  Inspection per Hive (protected)",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNjUzODQxOTg2LCJpYXQiOjE2NTI5Nzc5ODYsImp0aSI6ImJjMjVkMWMyOWNlNTQ3YTE4YWQ4NWYyYmYyODg0YjgxIiwidXNlcl9pZCI6MywidXNlcm5hbWUiOiJiZWVtYW4iLCJmaXJzdF9uYW1lIjoiRGFuaWVsIn0.GjMSj5W6FWHO6v8yShEOJ6YYivgB_yOrzL3ex8WQiM4",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "\n{\n    \"eggs\": 0,\n    \"larvae\": 111,\n    \"sealed_brood\": 2,\n    \"covered_bees\": 2,\n    \"nectar_honey\": 2,\n    \"pollen\": 2,\n    \"pest_spotted\": \"None\",\n    \"pest_action\": \"a trillion\",\n    \"notes_concerns\": \"Sparkling Clean but need new box\",\n    \"hive_id\":1\n\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://127.0.0.1:8000/api/inspections/1",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"inspections",
+								"1"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Youtube",
+			"item": [
+				{
+					"name": "New Request",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://www.googleapis.com/youtube/v3/search?key=AIzaSyB_EqdD4jhmW51ABYeQ-vMOg9ZJ4FzNcWg&part=snippet&type=video&maxResults=5",
+							"protocol": "https",
+							"host": [
+								"www",
+								"googleapis",
+								"com"
+							],
+							"path": [
+								"youtube",
+								"v3",
+								"search"
+							],
+							"query": [
+								{
+									"key": "key",
+									"value": "AIzaSyB_EqdD4jhmW51ABYeQ-vMOg9ZJ4FzNcWg"
+								},
+								{
+									"key": "part",
+									"value": "snippet"
+								},
+								{
+									"key": "type",
+									"value": "video"
+								},
+								{
+									"key": "maxResults",
+									"value": "5"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "New Request Copy",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://www.googleapis.com/youtube/v3/search?key=AIzaSyB_EqdD4jhmW51ABYeQ-vMOg9ZJ4FzNcWg&part=snippet&type=video&maxResults=5",
+							"protocol": "https",
+							"host": [
+								"www",
+								"googleapis",
+								"com"
+							],
+							"path": [
+								"youtube",
+								"v3",
+								"search"
+							],
+							"query": [
+								{
+									"key": "key",
+									"value": "AIzaSyB_EqdD4jhmW51ABYeQ-vMOg9ZJ4FzNcWg"
+								},
+								{
+									"key": "part",
+									"value": "snippet"
+								},
+								{
+									"key": "type",
+									"value": "video"
+								},
+								{
+									"key": "maxResults",
+									"value": "5"
+								}
 							]
 						}
 					},
