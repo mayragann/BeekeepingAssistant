@@ -4,7 +4,7 @@ import useAuth from "../../hooks/useAuth";
 import { Link } from "react-router-dom";
 
 import axios from "axios";
-import HiveCard from "../../components/HiveCard/HiveCard";
+import Hive from "../../components/Hive/Hive";
 
 const HomePage = () => {
   // The "user" value from this Hook contains the decoded logged in user information (username, first name, id)
@@ -15,7 +15,7 @@ const HomePage = () => {
 
   return (
     <div className="container">
-      <HiveCard />
+      <Hive />
       <Link to="/addhive">Add Hive!</Link>
     </div>
   );
