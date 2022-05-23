@@ -9,6 +9,8 @@ import LoginPage from "./pages/LoginPage/LoginPage";
 import RegisterPage from "./pages/RegisterPage/RegisterPage";
 import AddHivePage from "./pages/AddHive/AddHive";
 import UpdateHivePage from "./pages/UpdateHivePage/UpdateHivePage";
+import InspectionPage from "./pages/InspectionPage/InspectionPage";
+
 
 // Component Imports
 import Navbar from "./components/NavBar/NavBar";
@@ -22,6 +24,7 @@ import { useState } from "react";
 function App() {
 
   const [selectedHive, setSeletedHive] = useState('')
+
 
   return (
     <div>
@@ -39,6 +42,7 @@ function App() {
         <Route path="/login" element={<LoginPage />} />
         <Route path="/addhive" element={<PrivateRoute><AddHivePage /></PrivateRoute>}/>
         <Route path="/hives/update/:id"  element={<PrivateRoute><UpdateHivePage selectedHive={selectedHive} /></PrivateRoute>}/>
+        <Route path="/inspections/all/:id"  element={<PrivateRoute><InspectionPage selectedHive={selectedHive}  /></PrivateRoute>}/>
       </Routes>
       <Footer />
     </div>

@@ -3,7 +3,7 @@ import DisplayHives from '../DisplayHives/DisplayHives';
 
 import useAuth from '../../hooks/useAuth';
 import axios from 'axios';
-import { useParams } from 'react-router-dom';
+
 
 
 
@@ -11,11 +11,11 @@ import { useParams } from 'react-router-dom';
 const Hive= (props) => {
     const [user, token] = useAuth();
     const [hives, setHives] = useState([]);
-    const [inspections, setInspections] = useState([]);
+
 
   
     useEffect(()=>{
-        fetchHives(props.hives);
+        fetchHives();
     }, [])
     const fetchHives = async () => {
         try {
@@ -25,12 +25,12 @@ const Hive= (props) => {
             },
             });
             setHives(response.data);
-            console.log(response.data)
+            
         } catch (error) {
             console.log(error.response.data);
         }
     };
-    console.log(fetchHives)
+
     
     
     

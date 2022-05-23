@@ -1,34 +1,40 @@
 import React, { useState, useEffect } from 'react';
+import DisplayInspections from '../DisplayInspections/DisplayInspections';
+
 import useAuth from '../../hooks/useAuth';
 import axios from 'axios';
-import Hive from '../Hive/Hive';
 
-const Inspections = (props) => {
-    const[user, token] =useAuth();
+
+const Inspections= (selectedHive, props) => {
+    const [user, token] = useAuth();
     const [inspections, setInspections] = useState([]);
-    const [hives, setHives] = useState([])
 
     useEffect(()=>{
-        fetchInspections(props.inspections);
+        fetchInspections();
     }, [])
-
     const fetchInspections = async () => {
-        try {
-            let response = await axios.get(`http://127.0.0.1:8000/api/inspections/all/${props.hives}`, {
-                headers: {
-                    Authorization: "Bearer " + token,
-                },
-                });
-                setInspections(response.data);
-                console.log(response.data)
-        } catch (error) {
+        try {console.log(selectedHive)
+            let response = await axios.get(`http://127.0.0.1:8000/api/inspections/all/${selectedHive}`,  {
+            headers: {
+                Authorization: "Bearer " + token,
+            },
+            });
+            setInspections(response.data);
             
+        } catch (error) {
+            console.log(error.response.data);
         }
-    }
+    };
 
-    return ( 
-        <></>
-     );
+
+    
+    return (
+        <div className="container">
+            <h1>List of Inspections</h1>
+            <DisplayInspections inspections={inspections} setSeletedHive={props.setSeletedHive} />
+            
+        </div>
+      );
+
 }
- 
-export default Inspections;props
+export default Inspections;
