@@ -37,7 +37,7 @@ const Hive= (props) => {
     return (
         <div className="container">
             <h1>List of Hives</h1>
-            <DisplayHives hives={hives}/>
+            <DisplayHives hives={hives} setSeletedHive={props.setSeletedHive}/>
             
         </div>
       );

@@ -10,7 +10,7 @@ let updatedValues = {
     inspection_date: "",
 }
 
-const  UpdateHive= ({hives}) => {
+const  UpdateHive= ({selectedHive}) => {
     const location = useLocation()
     const [user, token] = useAuth()
     const navigate = useNavigate()
@@ -19,7 +19,8 @@ const  UpdateHive= ({hives}) => {
 
     async function putUpdatedHive(){
         try {
-            let response = await axios.put(`http://127.0.0.1:8000/api/hives/update/${hives.id}`, formData, 
+            console.log(selectedHive)
+            let response = await axios.put(`http://127.0.0.1:8000/api/hives/update/${selectedHive}/`, formData, 
             {
                 headers: {
                     Authorization: "Bearer " + token,

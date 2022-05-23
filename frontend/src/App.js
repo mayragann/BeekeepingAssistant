@@ -16,9 +16,13 @@ import Footer from "./components/Footer/Footer";
 
 // Util Imports
 import PrivateRoute from "./utils/PrivateRoute";
+import { useState } from "react";
 
 
 function App() {
+
+  const [selectedHive, setSeletedHive] = useState('')
+
   return (
     <div>
       <Navbar />
@@ -27,14 +31,14 @@ function App() {
           path="/"
           element={
             <PrivateRoute>
-              <HomePage />
+              <HomePage setSeletedHive={setSeletedHive} />
             </PrivateRoute>
           }
         />
         <Route path="/register" element={<RegisterPage />} />
         <Route path="/login" element={<LoginPage />} />
         <Route path="/addhive" element={<PrivateRoute><AddHivePage /></PrivateRoute>}/>
-        <Route path="/hives/update/:id"  element={<PrivateRoute><UpdateHivePage /></PrivateRoute>}/>
+        <Route path="/hives/update/:id"  element={<PrivateRoute><UpdateHivePage selectedHive={selectedHive} /></PrivateRoute>}/>
       </Routes>
       <Footer />
     </div>
