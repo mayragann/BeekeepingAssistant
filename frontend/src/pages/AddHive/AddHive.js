@@ -31,7 +31,7 @@ const AddHivePage = () =>{
         <div className="container">
             <form className="form" onSubmit={handleSubmit}>
                 <label>
-                    Hive:{""}
+                    Hive Number:{""}
                     <input
                         type="text"
                         name="hive_number"
@@ -40,7 +40,7 @@ const AddHivePage = () =>{
                         />
                 </label>
                 <label>
-                    Inspection Date:{""}
+                    Next Inspection Date:{""}
                     <input
                         type="date"
                         name="inspection_date"

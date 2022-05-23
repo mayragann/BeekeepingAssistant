@@ -3,13 +3,16 @@ import DisplayHives from '../DisplayHives/DisplayHives';
 
 import useAuth from '../../hooks/useAuth';
 import axios from 'axios';
+import { useParams } from 'react-router-dom';
+
 
 
 
 const Hive= (props) => {
     const [user, token] = useAuth();
-
     const [hives, setHives] = useState([]);
+    const [inspections, setInspections] = useState([]);
+
   
     useEffect(()=>{
         fetchHives(props.hives);
