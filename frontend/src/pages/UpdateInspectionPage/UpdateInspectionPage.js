@@ -1,14 +1,15 @@
 import React from 'react';
 
-import { useNavigate } from "react-router-dom"
+import { useNavigate, useParams } from "react-router-dom"
 import axios from 'axios'
 import useAuth from "../../hooks/useAuth"
 import useCustomForm from "../../hooks/useCustomForm"
 
 
-const  UpdateInspection= ({selectedInspection, selectedHive}) => {
+const  UpdateInspection= ({selectedInspection}) => {
+    const { id } = useParams();
     let updatedValues = {
-        hive_id: selectedHive,
+        hive_id: id,
         eggs: "",
         larvae: "",
         sealed_brood: "",
@@ -26,14 +27,15 @@ const  UpdateInspection= ({selectedInspection, selectedHive}) => {
     const [formData, handleInputChange, handleSubmit] = useCustomForm(updatedValues, putUpdatedInpsection)
     
     async function putUpdatedInpsection(){
-        try {
+
+        try {console.log(formData)
             let response = await axios.put(`http://127.0.0.1:8000/api/inspections/${selectedInspection}/`, formData, 
             {
                 headers: {
                     Authorization: "Bearer " + token,
                   },
             });
-            navigate("/")
+            navigate(`/inspections/all/${id}`)
             UpdateInspection(response.data); 
         } catch (error) {
           
@@ -43,7 +45,7 @@ const  UpdateInspection= ({selectedInspection, selectedHive}) => {
         <div className="container" >
         <form className="form" onSubmit={handleSubmit}>
             <label name="hive_id"
-                    value={formData.hive_id}>Update Form for Hive: {selectedHive} </label>
+                    value={formData.hive_id}>Update Form for Hive: {id} </label>
             <label>
                 Eggs:{""}
                 <input
