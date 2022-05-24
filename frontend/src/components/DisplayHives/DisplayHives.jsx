@@ -1,16 +1,18 @@
 import React from "react";
-
+import { useParams } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
 
-const DisplayHives = ({hives, setSeletedHive}) => {
+
+const DisplayHives = (props) => {
+    const { id } = useParams();
     const navigate = useNavigate()
 
     function handleClick(id){
-        setSeletedHive(id);
+        props.setSelectedHive(id);
         navigate(`/hives/update/${id}`)
     }
     function handleClickInspection(id){
-        setSeletedHive(id);
+        props.setSelectedHive(id);
         navigate(`/inspections/all/${id}`)
     }
     
@@ -18,7 +20,7 @@ const DisplayHives = ({hives, setSeletedHive}) => {
         <>
             <table>
                 <tbody>
-                    {hives.map((hive)=> {
+                    {props.hives.map((hive)=> {
                         return(
                             <tr key={hive.id} >
                             <td>{hive.hive_number}</td>

@@ -10,7 +10,7 @@ const Inspections= (selectedHive, props) => {
     const [inspections, setInspections] = useState([]);
 
     useEffect(()=>{
-        fetchInspections();
+        fetchInspections(props.setSelectedValue);
     }, [])
     const fetchInspections = async () => {
         try {console.log(selectedHive)
@@ -31,7 +31,7 @@ const Inspections= (selectedHive, props) => {
     return (
         <div className="container">
             <h1>List of Inspections</h1>
-            <DisplayInspections inspections={inspections} setSeletedHive={props.setSeletedHive} />
+            <DisplayInspections inspections={inspections} setSelectedHive={props.setSelectedHive} />
             
         </div>
       );
