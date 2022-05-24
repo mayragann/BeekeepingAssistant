@@ -1,10 +1,10 @@
 import React from "react";
-import { useParams } from "react-router-dom";
+
 import { useNavigate } from "react-router-dom";
 
 
 const DisplayHives = (props) => {
-    const { id } = useParams();
+ 
     const navigate = useNavigate()
 
     function handleClick(id){
