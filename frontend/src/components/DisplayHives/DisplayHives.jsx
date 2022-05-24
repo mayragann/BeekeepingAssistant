@@ -12,6 +12,7 @@ const DisplayHives = (props) => {
         navigate(`/hives/update/${id}`)
     }
     function handleClickInspection(id){
+        
         props.setSelectedHive(id);
         navigate(`/inspections/all/${id}`)
     }

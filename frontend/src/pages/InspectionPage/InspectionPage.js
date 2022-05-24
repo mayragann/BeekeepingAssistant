@@ -5,7 +5,7 @@ import useAuth from "../../hooks/useAuth"
 import DisplayInspections from "../../components/DisplayInspections/DisplayInspections";
 
 
-const InspectionPage = () => {
+const InspectionPage = (props) => {
   const [user, token] = useAuth()
   const [inspections, setInspections] = useState([]);
   const { id } = useParams();
@@ -30,7 +30,7 @@ const fetchInspections = async () => {
 
   return (
     <div className="container">
-      <DisplayInspections inspections={inspections}  />
+      <DisplayInspections inspections={inspections} setSelectedHive={props.setSelectedHive}  setSelectedInspection={props.setSelectedInspection}  />
 
     </div>
   );

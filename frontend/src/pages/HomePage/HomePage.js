@@ -34,7 +34,7 @@ const HomePage = (props) => {
   return (
     <div className="container">
       
-      <DisplayHives  hives ={hives} setSelectedHive={props.setSelectedHive}/>
+      <DisplayHives  hives ={hives} setSelectedHive={props.setSelectedHive}  setSelectedInspection={props.setSelectedInspection}/>
       <Link to="/addhive">Add Hive!</Link>
     </div>
   );

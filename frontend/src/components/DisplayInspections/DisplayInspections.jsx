@@ -2,23 +2,25 @@ import React from "react";
 
 import { useNavigate } from "react-router-dom";
 
-const DisplayInspections = (props) => {
+const DisplayInspections = ({setSelectedInspection, inspections}) => {
     const navigate = useNavigate()
 
-    function handleClick(){
-        // setSeletedHive();
-        navigate(`/inspections/add`)
+    function handleClick(id){
+        setSelectedInspection(id);
+        navigate(`/inspections/${id}`)
+        // navigate(`/inspections/add/`)
     }
     function handleClickInspection(id){
         // setSeletedHive(id);
         navigate(`/inspections/all/${id}`)
     }
     
+    
     return ( 
         <>
             <table>
                 <tbody>
-                    {props.inspections.map((inspection)=> {
+                    {inspections.map((inspection)=> {
                         return(
                             <tr key={inspection.id} >
                             <td>{inspection.eggs}</td>
@@ -31,7 +33,7 @@ const DisplayInspections = (props) => {
                             <td>{inspection.pest_action} </td> 
                             <td>{inspection.notes_concerns} </td> 
                             {/* <td> <button onClick={() => handleClickInspection(hive.id)}>Add</button></td> */}
-                            {/* <td><button onClick={() => handleClick(inspection.id)}>Update</button></td> */}
+                            <td><button onClick={() => handleClick(inspection.id)}>Update</button></td>
                            
                             
                             </tr>

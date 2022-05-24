@@ -10,6 +10,7 @@ import RegisterPage from "./pages/RegisterPage/RegisterPage";
 import AddHivePage from "./pages/AddHive/AddHive";
 import UpdateHivePage from "./pages/UpdateHivePage/UpdateHivePage";
 import InspectionPage from "./pages/InspectionPage/InspectionPage";
+import UpdateInspectionPage from "./pages/UpdateInspectionPage/UpdateInspectionPage";
 
 
 // Component Imports
@@ -24,6 +25,7 @@ import { useState } from "react";
 function App() {
 
   const [selectedHive, setSelectedHive] = useState('')
+  const [selectedInspection, setSelectedInspection] = useState('')
   
 
   return (
@@ -34,7 +36,7 @@ function App() {
           path="/"
           element={
             <PrivateRoute>
-              <HomePage setSelectedHive={setSelectedHive} />
+              <HomePage setSelectedHive={setSelectedHive} setSelectedInspection={setSelectedInspection} />
             </PrivateRoute>
           }
         />
@@ -42,7 +44,8 @@ function App() {
         <Route path="/login" element={<LoginPage />} />
         <Route path="/addhive" element={<PrivateRoute><AddHivePage /></PrivateRoute>}/>
         <Route path="/hives/update/:id"  element={<PrivateRoute><UpdateHivePage selectedHive={selectedHive} /></PrivateRoute>}/>
-        <Route path="/inspections/all/:id"  element={<PrivateRoute><InspectionPage selectedHive={selectedHive}  /></PrivateRoute>}/>
+        <Route path="/inspections/all/:id"  element={<PrivateRoute><InspectionPage selectedHive={selectedHive} selectedInspection={selectedInspection}  setSelectedInspection={setSelectedInspection}/></PrivateRoute>}/>
+        <Route path="/inspections/:id"  element={<PrivateRoute><UpdateInspectionPage selectedHive={selectedHive} selectedInspection={selectedInspection}  /></PrivateRoute>}/>
       </Routes>
       <Footer />
     </div>
