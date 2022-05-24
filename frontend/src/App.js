@@ -44,7 +44,7 @@ function App() {
         <Route path="/login" element={<LoginPage />} />
         <Route path="/addhive" element={<PrivateRoute><AddHivePage /></PrivateRoute>}/>
         <Route path="/hives/update/:id"  element={<PrivateRoute><UpdateHivePage selectedHive={selectedHive} /></PrivateRoute>}/>
-        <Route path="/inspections/all/:id"  element={<PrivateRoute><InspectionPage selectedHive={selectedHive} selectedInspection={selectedInspection}  setSelectedInspection={setSelectedInspection}/></PrivateRoute>}/>
+        <Route path="/inspections/all/:id"  element={<PrivateRoute><InspectionPage setSelectedHive={setSelectedHive} setSelectedInspection={setSelectedInspection}/></PrivateRoute>}/>
         <Route path="/inspections/:id"  element={<PrivateRoute><UpdateInspectionPage selectedHive={selectedHive} selectedInspection={selectedInspection}  /></PrivateRoute>}/>
       </Routes>
       <Footer />

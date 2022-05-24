@@ -1,34 +1,33 @@
 import React from 'react';
 
-import { useNavigate, useParams } from "react-router-dom"
+import { useNavigate } from "react-router-dom"
 import axios from 'axios'
 import useAuth from "../../hooks/useAuth"
 import useCustomForm from "../../hooks/useCustomForm"
 
-let updatedValues = {
-    // hive_id: hive_id,
-    eggs: "",
-    larvae: "",
-    sealed_brood: "",
-    covered_bees: "",
-    nectar_honey: "",
-    pollen: "",
-    pest_spotted: "",
-    pest_action: "",
-    notes_concerns: "",
 
-}
-
-const  UpdateInspection= ({selectedInspection}) => {
+const  UpdateInspection= ({selectedInspection, selectedHive}) => {
+    let updatedValues = {
+        hive_id: selectedHive,
+        eggs: "",
+        larvae: "",
+        sealed_brood: "",
+        covered_bees: "",
+        nectar_honey: "",
+        pollen: "",
+        pest_spotted: "",
+        pest_action: "",
+        notes_concerns: "",
     
-    const { id } = useParams();
+    }
+    
     const [user, token] = useAuth()
     const navigate = useNavigate()
     const [formData, handleInputChange, handleSubmit] = useCustomForm(updatedValues, putUpdatedInpsection)
     
     async function putUpdatedInpsection(){
         try {
-            let response = await axios.put(`http://127.0.0.1:8000/api/inspections/inspections/all/${selectedInspection}`, formData, 
+            let response = await axios.put(`http://127.0.0.1:8000/api/inspections/${selectedInspection}/`, formData, 
             {
                 headers: {
                     Authorization: "Bearer " + token,
@@ -43,6 +42,8 @@ const  UpdateInspection= ({selectedInspection}) => {
     return ( 
         <div className="container" >
         <form className="form" onSubmit={handleSubmit}>
+            <label name="hive_id"
+                    value={formData.hive_id}>Update Form for Hive: {selectedHive} </label>
             <label>
                 Eggs:{""}
                 <input
@@ -101,7 +102,7 @@ const  UpdateInspection= ({selectedInspection}) => {
                Pest Spotted? Yes or No - (N/A if None):{""}
                 <input
                     type="text"
-                    name="pest_spotteed"
+                    name="pest_spotted"
                     value={formData.pest_spotted}
                     onChange={handleInputChange}
                     />
