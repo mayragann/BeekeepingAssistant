@@ -19,7 +19,7 @@ const  AddInspection= () => {
         pest_spotted: "",
         pest_action: "",
         notes_concerns: "",
-        date: "",
+        inspection_date: "",
     
     }
     
@@ -132,8 +132,8 @@ const  AddInspection= () => {
                Date:{""}
                 <input
                     type="date"
-                    name="date"
-                    value={formData.date}
+                    name="inspection_date"
+                    value={formData.inspection_date}
                     onChange={handleInputChange}
                     />
             </label>

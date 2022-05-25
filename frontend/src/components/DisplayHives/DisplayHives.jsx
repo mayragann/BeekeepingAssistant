@@ -32,7 +32,7 @@ const DisplayHives = (props) => {
                             <td>{hive.hive_number}</td>
                             <td>{hive.inspection_date} </td> 
                             <td> <button onClick={() => handleClickInspection(hive.id)}> View Inspections</button></td>
-                            <td> <button onClick={() => handleClickAddInspection(hive)}> Add Inspection</button></td>
+                            <td> <button onClick={() => handleClickAddInspection(hive.id)}> Add Inspection</button></td>
                             <td><button onClick={() => handleClick(hive.id)}>Update</button></td>
                            
                             
