@@ -1,5 +1,6 @@
 import React from "react";
 
+
 import { useNavigate } from "react-router-dom";
 
 const DisplayInspections = ({setSelectedInspection, inspections, setSelectedHive}) => {
@@ -13,14 +14,12 @@ const DisplayInspections = ({setSelectedInspection, inspections, setSelectedHive
         navigate(`/inspections/${inspection.id}`)
         // navigate(`/inspections/add/`)
     }
-    function handleClickInspection(id){
-        // setSeletedHive(id);
-        navigate(`/inspections/all/${id}`)
-    }
+
     
     
     return ( 
         <>
+        
             <table>
                 <tbody>
                     {inspections.map((inspection)=> {
@@ -35,7 +34,8 @@ const DisplayInspections = ({setSelectedInspection, inspections, setSelectedHive
                             <td>{inspection.pest_spotted} </td> 
                             <td>{inspection.pest_action} </td> 
                             <td>{inspection.notes_concerns} </td> 
-                            {/* <td> <button onClick={() => handleClickInspection(hive.id)}>Add</button></td> */}
+                            <td>{inspection.inspection_date} </td> 
+                            
                             <td><button onClick={() => handleClick(inspection)}>Update</button></td>
                            
                             

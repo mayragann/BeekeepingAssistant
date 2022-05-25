@@ -1,37 +1,43 @@
-import { React, useState, useEffect} from "react";
-import { useParams } from "react-router-dom"
+import { React, useState, useEffect } from "react";
+import { useParams } from "react-router-dom";
 import axios from "axios";
-import useAuth from "../../hooks/useAuth"
+import useAuth from "../../hooks/useAuth";
 import DisplayInspections from "../../components/DisplayInspections/DisplayInspections";
-
+import InspectionTracker from "../../components/InspectionTracker/InspectionTracker";
 
 const InspectionPage = (props) => {
-  const [user, token] = useAuth()
+  const [user, token] = useAuth();
   const [inspections, setInspections] = useState([]);
   const { id } = useParams();
-  
-  useEffect(()=>{
+
+  useEffect(() => {
     fetchInspections();
-}, [token])
+  }, [token]);
 
-const fetchInspections = async () => {
+  const fetchInspections = async () => {
     try {
-        let response = await axios.get(`http://127.0.0.1:8000/api/inspections/all/${id}`,  {
-        headers: {
+      let response = await axios.get(
+        `http://127.0.0.1:8000/api/inspections/all/${id}`,
+        {
+          headers: {
             Authorization: "Bearer " + token,
-        },
-        });
-        setInspections(response.data);
-
+          },
+        }
+      );
+      setInspections(response.data);
     } catch (error) {
-        console.log(error.response.data);
+      console.log(error.response.data);
     }
-};
+  };
 
   return (
     <div className="container">
-      <DisplayInspections inspections={inspections} setSelectedHive={props.setSelectedHive}  setSelectedInspection={props.setSelectedInspection}  />
-
+      <InspectionTracker inspections={inspections} />
+      <DisplayInspections
+        inspections={inspections}
+        setSelectedHive={props.setSelectedHive}
+        setSelectedInspection={props.setSelectedInspection}
+      />
     </div>
   );
 };

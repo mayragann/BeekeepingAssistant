@@ -28,7 +28,7 @@ const  AddInspection= () => {
     const [formData, handleInputChange, handleSubmit] = useCustomForm(updatedValues, postAddInpsection)
     
     async function postAddInpsection(){
-        debugger
+        
         try {console.log(formData)
             let response = await axios.post(`http://127.0.0.1:8000/api/inspections/add/${id}/`, formData, 
             {
