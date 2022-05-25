@@ -12,10 +12,15 @@ const DisplayHives = (props) => {
         navigate(`/hives/update/${id}`)
     }
     function handleClickInspection(id){
-        
         props.setSelectedHive(id);
         navigate(`/inspections/all/${id}`)
     }
+    function handleClickAddInspection(id){
+        props.setSelectedHive(id);
+        navigate(`/inspections/add/${id}`)
+    }
+
+
     
     return ( 
         <>
@@ -26,11 +31,9 @@ const DisplayHives = (props) => {
                             <tr key={hive.id} >
                             <td>{hive.hive_number}</td>
                             <td>{hive.inspection_date} </td> 
-                            <td> <button onClick={() => handleClickInspection(hive.id)}>Inspections</button></td>
-                            <td>
-
-                                <button onClick={() => handleClick(hive.id)}>Update</button>
-                                </td>
+                            <td> <button onClick={() => handleClickInspection(hive.id)}> View Inspections</button></td>
+                            <td> <button onClick={() => handleClickAddInspection(hive)}> Add Inspection</button></td>
+                            <td><button onClick={() => handleClick(hive.id)}>Update</button></td>
                            
                             
                             </tr>

@@ -6,7 +6,7 @@ import useAuth from "../../hooks/useAuth"
 import useCustomForm from "../../hooks/useCustomForm"
 
 
-const  UpdateInspection= ({selectedInspection}) => {
+const  AddInspection= () => {
     const { id } = useParams();
     let updatedValues = {
         hive_id: id,
@@ -25,19 +25,19 @@ const  UpdateInspection= ({selectedInspection}) => {
     
     const [user, token] = useAuth()
     const navigate = useNavigate()
-    const [formData, handleInputChange, handleSubmit] = useCustomForm(updatedValues, putUpdatedInpsection)
+    const [formData, handleInputChange, handleSubmit] = useCustomForm(updatedValues, postAddInpsection)
     
-    async function putUpdatedInpsection(){
-        
+    async function postAddInpsection(){
+        debugger
         try {console.log(formData)
-            let response = await axios.put(`http://127.0.0.1:8000/api/inspections/${selectedInspection}/`, formData, 
+            let response = await axios.post(`http://127.0.0.1:8000/api/inspections/add/${id}/`, formData, 
             {
                 headers: {
                     Authorization: "Bearer " + token,
                   },
             });
             navigate("/")
-            UpdateInspection(response.data); 
+            AddInspection(response.data); 
         } catch (error) {
           
         }
@@ -46,7 +46,7 @@ const  UpdateInspection= ({selectedInspection}) => {
         <div className="container" >
         <form className="form" onSubmit={handleSubmit}>
             <label name="hive_id"
-                    value={formData.hive_id}>Update Form for Hive: {id} </label>
+                    value={formData.hive_id}>New Inspection for Hive: {id} </label>
             <label>
                 Eggs:{""}
                 <input
@@ -137,7 +137,7 @@ const  UpdateInspection= ({selectedInspection}) => {
                     onChange={handleInputChange}
                     />
             </label>
-            <button type="submit">Update Inspection!</button>
+            <button type="submit">New Inspection!</button>
          
         </form>
         
@@ -146,4 +146,4 @@ const  UpdateInspection= ({selectedInspection}) => {
      );
 }
  
-export default UpdateInspection ;
+export default AddInspection;

@@ -11,6 +11,7 @@ import AddHivePage from "./pages/AddHive/AddHive";
 import UpdateHivePage from "./pages/UpdateHivePage/UpdateHivePage";
 import InspectionPage from "./pages/InspectionPage/InspectionPage";
 import UpdateInspectionPage from "./pages/UpdateInspectionPage/UpdateInspectionPage";
+import AddInspectionPage from "./pages/AddInspection/AddInspection";
 
 
 // Component Imports
@@ -45,6 +46,7 @@ function App() {
         <Route path="/addhive" element={<PrivateRoute><AddHivePage /></PrivateRoute>}/>
         <Route path="/hives/update/:id"  element={<PrivateRoute><UpdateHivePage selectedHive={selectedHive} /></PrivateRoute>}/>
         <Route path="/inspections/all/:id"  element={<PrivateRoute><InspectionPage setSelectedHive={setSelectedHive} setSelectedInspection={setSelectedInspection}/></PrivateRoute>}/>
+        <Route path="/inspections/add/:id"  element={<PrivateRoute><AddInspectionPage selectedHive={selectedHive} selectedInspection={selectedInspection}  /></PrivateRoute>}/>
         <Route path="/inspections/:id"  element={<PrivateRoute><UpdateInspectionPage selectedHive={selectedHive} selectedInspection={selectedInspection}  /></PrivateRoute>}/>
       </Routes>
       <Footer />

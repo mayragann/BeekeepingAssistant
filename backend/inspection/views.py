@@ -33,7 +33,8 @@ def get_inspection_by_hive(request,pk):
 
 @api_view(['POST'])
 @permission_classes([IsAuthenticated])
-def new_inspection_by_hive(request):
+def new_inspection_by_hive(request, pk):
+    hive = get_object_or_404(Hive, pk=pk)
     if request.method == 'POST':
         serializer = InspectionSerializer(data=request.data)
         if serializer.is_valid(raise_exception=True):
