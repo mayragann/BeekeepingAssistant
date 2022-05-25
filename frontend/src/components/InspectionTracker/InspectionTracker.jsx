@@ -1,23 +1,11 @@
 import {useState, useEffect, React} from "react";
 import {Chart} from 'react-google-charts';
-import {useParams} from "react-router-dom";
+
 
 
 const InspectionTracker = ({inspections}) => {
 
     const [chartData, setChartData] = useState([]);
-    const {id} = useParams();
-    let updatedValues = {
-        hive_id: id,
-        inspection_date: "",
-        eggs: "",
-        larvae: "",
-        sealed_brood: "",
-        covered_bees: "",
-        nectar_honey: "",
-        pollen: "",
-
-    }
 
     useEffect(() => {
         let inspectionData = inspections.map(inspection => {
@@ -38,7 +26,7 @@ const InspectionTracker = ({inspections}) => {
 
         title: "Hive Health",
         hAxis: {
-            title: "Day",
+            title: "Inspections",
             titleTextStyle: {
                 color: "#333"
             }
@@ -66,7 +54,7 @@ const InspectionTracker = ({inspections}) => {
 
 
     ]
-    {console.log("inspection data: ", inspections, "graph data: ", data) }
+    
     return (<Chart chartType="AreaChart" width="100%" height="400px"
         data={data}
         options={options}/>)

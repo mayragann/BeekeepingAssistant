@@ -4,6 +4,7 @@ import axios from "axios";
 import useAuth from "../../hooks/useAuth";
 import DisplayInspections from "../../components/DisplayInspections/DisplayInspections";
 import InspectionTracker from "../../components/InspectionTracker/InspectionTracker";
+import Searchbar from "../../components/InspectionSearch/InspectionSearch"
 
 const InspectionPage = (props) => {
   const [user, token] = useAuth();
@@ -33,6 +34,7 @@ const InspectionPage = (props) => {
   return (
     <div className="container">
       <InspectionTracker inspections={inspections} />
+      <Searchbar inspections={inspections} setInspections={props.setInspections}/>
       <DisplayInspections
         inspections={inspections}
         setSelectedHive={props.setSelectedHive}
