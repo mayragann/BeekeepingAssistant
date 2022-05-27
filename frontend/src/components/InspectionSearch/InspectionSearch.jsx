@@ -5,6 +5,7 @@ import { useTable, useGlobalFilter, useFilters } from "react-table";
 import "bootstrap/dist/css/bootstrap.min.css";
 import { GlobalFilter } from "./GlobalFilter";
 import { ColumnFilter } from "./ColumnFilter";
+import { CheckBox } from "./CheckBox";
 
 
 
@@ -108,6 +109,8 @@ const SearchInspections = ({ inspections }) => {
           prepareRow,
           state,
           setGlobalFilter,
+          allColumns,
+          getToggleHideAllColumnsProps,
         } = useTable({
           columns,
           data,
@@ -118,7 +121,20 @@ const SearchInspections = ({ inspections }) => {
         const { globalFilter } = state
 
         return(
+          
             <>
+            <div>
+              <CheckBox {...getToggleHideAllColumnsProps()} /> Toggle All
+            </div>
+            {allColumns.map(column => (
+              <div key={column.id}>
+                <label>
+                  <input type='checkbox' {...column.getToggleHiddenProps()} />{' '}
+                  {column.Header}
+                </label>
+              </div>
+            ))}
+            <br />
             <GlobalFilter filter={globalFilter} setFilter={setGlobalFilter}/>
             <table className="table" {...getTableProps()}>
             <thead>
@@ -147,6 +163,7 @@ const SearchInspections = ({ inspections }) => {
               })}
             </tbody>
           </table>
+          
           </>
         )
     }
