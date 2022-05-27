@@ -1,61 +1,152 @@
-import {React, useState} from "react";
+import { useEffect, useState } from "react";
+import React from "react";
+import { useTable } from "react-table";
+
+import "bootstrap/dist/css/bootstrap.min.css";
 
 
-const SearchInspections = (props) => {
-    const [inspectionFilter, setInspectionfilter] = useState([]);
-    const [dropDownOne, setDropDownOne] = useState('ALL');
-    const [show, setShow] = useState(false);
-    const handleClose = () => setShow(false);
-    const handleShow = () => setShow(true);
-    const [modalLabel, setModalLabel] = useState('');
+
+const SearchInspections = ({ inspections }) => {
+  const [chartData, setChartData] = useState([]);
+  
+  useEffect(() => {
+    const inspectionData = inspections.map((inspection) => {
+      
+        return{
+            "eggs": inspection.eggs,
+            "larvae": inspection.larvae,
+            "sealed_brood": inspection.sealed_brood,
+            "covered_bees": inspection.covered_bees,
+            "nectar_honey": inspection.nectar_honey,
+            "pollen": inspection.pollen,
+            "pest_spotted": inspection.pest_spotted,
+            "pest_action": inspection.pest_action,
+            "notes_concerns": inspection.notes_concerns,
+            "inspection_date": inspection.inspection_date,
     
-    function eggsFilter(){
-        setDropDownOne('eggs')
-        setModalLabel('Frames w/Eggs')
-        handleShow();
+        }
+      
+      ;
+    });
+    setChartData(inspectionData);
+  }, [inspections]);
+
+  const columns = React.useMemo(
+      () =>[
+    {
+      Header: "Frames",
+      columns: [
+        {
+          Header: "W/Eggs",
+          accessor: "eggs",
+        },
+        {
+          Header: "W/Larvae",
+          accessor: "larvae",
+        },
+        {
+          Header: "W/Sealed Brood",
+          accessor: "sealed_brood",
+        },
+        {
+          Header: "Covered in Bees",
+          accessor: "covered_bees",
+        },
+        {
+          Header: "W/Nectar and/or Honey",
+          accessor: "nectar_honey",
+        },
+        {
+          Header: "W/Pollen",
+          accessor: "pollen",
+        },
+        {
+          Header: "Pest Spotted",
+          accessor: "pest_spotted",
+        },
+        {
+          Header: "Pest Action",
+          accessor: "pest_action",
+        },
+        {
+          Header: "Notes or Concerns",
+          accessor: "notes_concerns",
+        },
+        {
+          Header: "Inspection Date",
+          accessor: "inspection_date",
+        },
+      ],
+    },
+  ], []);
+
+  const data = React.useMemo(() => {
+    return  [...chartData]
+    }, [chartData]);
+
+//   const { getTableProps, getTableBodyProps, headerGroups, rows, prepareRow } =
+//     useTable({
+//       columns,
+//       data,
+//     });
+
+    const Table = ({ columns, data }) => {
+        // Use the state and functions returned from useTable to build your UI
+        const {
+          getTableProps,
+          getTableBodyProps,
+          headerGroups,
+          rows,
+          prepareRow,
+        } = useTable({
+          columns,
+          data,
+        })
+
+
+        return(
+            
+            <table className="table" {...getTableProps()}>
+            <thead>
+              {headerGroups.map((headerGroup) => (
+                <tr {...headerGroup.getHeaderGroupProps()}>
+                  {headerGroup.headers.map((column) => (
+                    <th {...column.getHeaderProps()}>{column.render("Header")}</th>
+                  ))}
+                </tr>
+              ))}
+            </thead>
+            <tbody {...getTableBodyProps()}>
+              {rows.map((row) => {
+                prepareRow(row);
+                return (
+                  <tr {...row.getRowProps()}>
+                    {row.cells.map((cell) => {
+                      return (
+                        <td {...cell.getCellProps()}>{cell.render("Cell")}</td>
+                      );
+                    })}
+                  </tr>
+                );
+              })}
+            </tbody>
+          </table>
+
+        )
     }
-    function larvaeFilter(){
-        setDropDownOne('larvae')
-        setModalLabel('Frames w/Larvae')
-        handleShow();
-    }
-    function sealedBroodFilter(){
-        setDropDownOne('sealed_brood')
-        setModalLabel('Frames w/Sealed Brood')
-        handleShow();
-    }
-    function coveredBeesFilter(){
-        setDropDownOne('covered_bees')
-        setModalLabel('Frames Covered w/Bees')
-        handleShow();
-    }
-    function NectarHoneyFilter(){
-        setDropDownOne('nectar_honey')
-        setModalLabel('Frames w/Nectar and/or Honey')
-        handleShow();
-    }
-    function pollenFilter(){
-        setDropDownOne('pollen')
-        setModalLabel('Frames w/pollen')
-        handleShow();
-    }
-    function pestSpottedFilter(){
-        setDropDownOne('pollen')
-        setModalLabel('Frames w/pollen')
-        handleShow();
-    }
-    
-    return (<>
-        <form onSubmit={searchResults}>
-            <input type="text"
-                value={inspectionSearch}
-                onChange={
-                    (e) => SetInspectionSearch(e.target.value)
-                }
-                placeholder="Search:..."/> {""}
-                <button type="submit">Search</button>
-                </form>
-    </>);
-}
+
+
+  return (
+    <>
+    <Table columns={columns} data={data}></Table>
+    {console.log(columns)}
+    {console.log(data)}
+    </>
+  );
+};
+
+
+
+
 
 export default SearchInspections;

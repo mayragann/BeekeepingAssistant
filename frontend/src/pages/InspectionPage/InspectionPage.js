@@ -31,32 +31,22 @@ const InspectionPage = (props) => {
     }
   };
 
-  function applyFilter(category, userInput){
-    if(category === 'All' || userInput ===''){
-    console.log('working!')
-    fetchInspections();
-    }
-    else
-    {
-      let newInspections = inspections.filter(function(element){
-        if(element[category] === userInput){
-          return true;
-        }
-      })
-      setInspections(newInspections);
-    }
-  }
+
 
   return (
+    <>
     <div className="container">
+      
       <InspectionTracker inspections={inspections} />
-      <SearchInspections inspections={inspections} applyFilter={applyFilter}/>
+      <SearchInspections inspections={inspections} />
       <DisplayInspections
         inspections={inspections}
         setSelectedHive={props.setSelectedHive}
         setSelectedInspection={props.setSelectedInspection}
       />
     </div>
+
+    </>
   );
 };
 
