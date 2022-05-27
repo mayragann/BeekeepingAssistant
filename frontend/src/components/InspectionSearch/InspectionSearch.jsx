@@ -1,8 +1,10 @@
 import { useEffect, useState } from "react";
 import React from "react";
-import { useTable } from "react-table";
+import { useTable, useGlobalFilter, useFilters } from "react-table";
 
 import "bootstrap/dist/css/bootstrap.min.css";
+import { GlobalFilter } from "./GlobalFilter";
+import { ColumnFilter } from "./ColumnFilter";
 
 
 
@@ -39,42 +41,53 @@ const SearchInspections = ({ inspections }) => {
         {
           Header: "W/Eggs",
           accessor: "eggs",
+          Filter: ColumnFilter
         },
         {
           Header: "W/Larvae",
           accessor: "larvae",
+          Filter: ColumnFilter
         },
         {
           Header: "W/Sealed Brood",
           accessor: "sealed_brood",
+          Filter: ColumnFilter
+          
         },
         {
           Header: "Covered in Bees",
           accessor: "covered_bees",
+          Filter: ColumnFilter
         },
         {
           Header: "W/Nectar and/or Honey",
           accessor: "nectar_honey",
+          Filter: ColumnFilter
         },
         {
           Header: "W/Pollen",
           accessor: "pollen",
+          Filter: ColumnFilter
         },
         {
           Header: "Pest Spotted",
           accessor: "pest_spotted",
+          Filter: ColumnFilter
         },
         {
           Header: "Pest Action",
           accessor: "pest_action",
+          Filter: ColumnFilter
         },
         {
           Header: "Notes or Concerns",
           accessor: "notes_concerns",
+          Filter: ColumnFilter
         },
         {
           Header: "Inspection Date",
           accessor: "inspection_date",
+          Filter: ColumnFilter
         },
       ],
     },
@@ -84,11 +97,6 @@ const SearchInspections = ({ inspections }) => {
     return  [...chartData]
     }, [chartData]);
 
-//   const { getTableProps, getTableBodyProps, headerGroups, rows, prepareRow } =
-//     useTable({
-//       columns,
-//       data,
-//     });
 
     const Table = ({ columns, data }) => {
         // Use the state and functions returned from useTable to build your UI
@@ -98,20 +106,28 @@ const SearchInspections = ({ inspections }) => {
           headerGroups,
           rows,
           prepareRow,
+          state,
+          setGlobalFilter,
         } = useTable({
           columns,
           data,
-        })
+        }, 
+        useFilters,
+        useGlobalFilter)
 
+        const { globalFilter } = state
 
         return(
-            
+            <>
+            <GlobalFilter filter={globalFilter} setFilter={setGlobalFilter}/>
             <table className="table" {...getTableProps()}>
             <thead>
               {headerGroups.map((headerGroup) => (
                 <tr {...headerGroup.getHeaderGroupProps()}>
                   {headerGroup.headers.map((column) => (
-                    <th {...column.getHeaderProps()}>{column.render("Header")}</th>
+                    <th {...column.getHeaderProps()}>{column.render("Header")}
+                    <div>{column.canFilter ? column.render('Filter') : null}</div>
+                    </th>
                   ))}
                 </tr>
               ))}
@@ -131,7 +147,7 @@ const SearchInspections = ({ inspections }) => {
               })}
             </tbody>
           </table>
-
+          </>
         )
     }
 
@@ -139,8 +155,7 @@ const SearchInspections = ({ inspections }) => {
   return (
     <>
     <Table columns={columns} data={data}></Table>
-    {console.log(columns)}
-    {console.log(data)}
+
     </>
   );
 };
