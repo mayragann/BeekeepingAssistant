@@ -38,12 +38,12 @@ const InspectionPage = (props) => {
     <div className="container">
       
       <InspectionTracker inspections={inspections} />
-      <SearchInspections inspections={inspections} />
       <DisplayInspections
         inspections={inspections}
         setSelectedHive={props.setSelectedHive}
         setSelectedInspection={props.setSelectedInspection}
       />
+      <SearchInspections inspections={inspections} />
     </div>
 
     </>

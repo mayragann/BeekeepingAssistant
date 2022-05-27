@@ -6,6 +6,7 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import { GlobalFilter } from "./GlobalFilter";
 import { ColumnFilter } from "./ColumnFilter";
 import { CheckBox } from "./CheckBox";
+import './Table.css'
 
 
 
@@ -123,25 +124,13 @@ const SearchInspections = ({ inspections }) => {
         return(
           
             <>
-            <div>
-              <CheckBox {...getToggleHideAllColumnsProps()} /> Toggle All
-            </div>
-            {allColumns.map(column => (
-              <div key={column.id}>
-                <label>
-                  <input type='checkbox' {...column.getToggleHiddenProps()} />{' '}
-                  {column.Header}
-                </label>
-              </div>
-            ))}
-            <br />
             <GlobalFilter filter={globalFilter} setFilter={setGlobalFilter}/>
             <table className="table" {...getTableProps()}>
             <thead>
               {headerGroups.map((headerGroup) => (
-                <tr {...headerGroup.getHeaderGroupProps()}>
+                  <tr {...headerGroup.getHeaderGroupProps()}>
                   {headerGroup.headers.map((column) => (
-                    <th {...column.getHeaderProps()}>{column.render("Header")}
+                      <th {...column.getHeaderProps()}>{column.render("Header")}
                     <div>{column.canFilter ? column.render('Filter') : null}</div>
                     </th>
                   ))}
@@ -150,19 +139,32 @@ const SearchInspections = ({ inspections }) => {
             </thead>
             <tbody {...getTableBodyProps()}>
               {rows.map((row) => {
-                prepareRow(row);
-                return (
-                  <tr {...row.getRowProps()}>
+                  prepareRow(row);
+                  return (
+                      <tr {...row.getRowProps()}>
                     {row.cells.map((cell) => {
                       return (
                         <td {...cell.getCellProps()}>{cell.render("Cell")}</td>
-                      );
+                        );
                     })}
                   </tr>
                 );
-              })}
+            })}
             </tbody>
           </table>
+          <div>
+              <h3>Inspection Table</h3>
+            <CheckBox {...getToggleHideAllColumnsProps()} /> Toggle All
+          </div>
+          {allColumns.map(column => (
+            <div key={column.id}>
+              <label>
+                <input type='checkbox' {...column.getToggleHiddenProps()} />{' '}
+                {column.Header}
+              </label>
+            </div>
+          ))}
+          <br />
           
           </>
         )
