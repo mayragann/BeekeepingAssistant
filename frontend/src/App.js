@@ -1,6 +1,9 @@
 // General Imports
 import { Routes, Route } from "react-router-dom";
 import "./App.css";
+import {KEY} from './localKey';
+import { useEffect } from "react";
+import axios from "axios";
 
 // Pages Imports
 import HomePage from "./pages/HomePage/HomePage";
@@ -23,7 +26,23 @@ import { useState } from "react";
 function App() {
   const [selectedHive, setSelectedHive] = useState("");
   const [selectedInspection, setSelectedInspection] = useState("");
+  const [searchResults, setSearchResults]= useState([]);
+  const [currentVideo, setCurrentVideo] = useState({});
 
+
+
+    useEffect(() => {
+      getSearchResults()
+      }, [])
+  
+
+  async function getSearchResults(searchTerm = 'soccer'){
+  
+    let response = await axios.get(`https://www.googleapis.com/youtube/v3/search?q=${searchTerm}&key=${KEY}&part=snippet&type=video&maxResults=4`);
+    console.log(response.data.items)
+    setSearchResults(response.data.items)
+    setCurrentVideo(response.data.items[0])
+  }
 
   return (
     <div>
