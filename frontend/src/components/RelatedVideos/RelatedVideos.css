@@ -1,0 +1,11 @@
+.related-contain {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 10rem;
+  }
+  
+  .related-image {
+    height: 150px;
+    width: 265px;
+    margin-bottom: 2rem;
+  }

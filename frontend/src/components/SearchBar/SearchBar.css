@@ -1,0 +1,35 @@
+.search-contain {
+    display: flex;
+    max-width: 80%;
+    margin: auto;
+    flex-direction: row;
+    align-items: center;
+  }
+  .search-form-contain {
+    display: flex;
+    margin: auto;
+    flex-direction: row;
+    align-items: center;
+    padding-left: 8rem;
+    padding-right: 8rem;
+  }
+  
+  .search-label {
+    padding-right: 0.5rem;
+    font-size: 19px;
+    font-weight: bold;
+  }
+  
+  .search-input {
+    width: 600px;
+    height: 35px;
+    padding-left: 0.5rem;
+    margin-right: 1rem;
+  }
+  
+  .search-button {
+    background-color: darkkhaki;
+    color: black;
+    font-weight: bold;
+    border-radius: 10px;
+  }

@@ -1,0 +1,23 @@
+.video-reg-contain {
+    text-align: right;
+    margin-right: 2rem;
+  }
+  
+  .video-contain {
+    display: flex;
+    max-width: 100%;
+    margin: auto;
+    justify-content: center;
+  }
+  
+  .video-container {
+    display: center;
+    margin-top: 5rem;
+  }
+  
+  
+  
+  .video-player{
+    width: 100%;
+  }
+  

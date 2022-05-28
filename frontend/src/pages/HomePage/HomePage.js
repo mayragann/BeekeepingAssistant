@@ -37,6 +37,7 @@ const HomePage = (props) => {
       <DisplayHives  hives ={hives} setSelectedHive={props.setSelectedHive}  setSelectedInspection={props.setSelectedInspection}/>
       <Link to="/addhive">Add Hive!</Link>
       <h3>Check out our FAQ</h3>
+      <Link to="/videos">Search!</Link>
     </div>
   );
 };

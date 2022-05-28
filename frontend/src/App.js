@@ -1,9 +1,7 @@
 // General Imports
-import { Routes, Route } from "react-router-dom";
+import { Routes, Route, useNavigate  } from "react-router-dom";
 import "./App.css";
-import {KEY} from './localKey';
-import { useEffect } from "react";
-import axios from "axios";
+
 
 // Pages Imports
 import HomePage from "./pages/HomePage/HomePage";
@@ -14,6 +12,9 @@ import UpdateHivePage from "./pages/UpdateHivePage/UpdateHivePage";
 import InspectionPage from "./pages/InspectionPage/InspectionPage";
 import UpdateInspectionPage from "./pages/UpdateInspectionPage/UpdateInspectionPage";
 import AddInspectionPage from "./pages/AddInspection/AddInspection";
+import VideoPage from "./pages/VideoPage/VideoPage";
+
+
 
 // Component Imports
 import Navbar from "./components/NavBar/NavBar";
@@ -26,23 +27,6 @@ import { useState } from "react";
 function App() {
   const [selectedHive, setSelectedHive] = useState("");
   const [selectedInspection, setSelectedInspection] = useState("");
-  const [searchResults, setSearchResults]= useState([]);
-  const [currentVideo, setCurrentVideo] = useState({});
-
-
-
-    useEffect(() => {
-      getSearchResults()
-      }, [])
-  
-
-  async function getSearchResults(searchTerm = 'soccer'){
-  
-    let response = await axios.get(`https://www.googleapis.com/youtube/v3/search?q=${searchTerm}&key=${KEY}&part=snippet&type=video&maxResults=4`);
-    console.log(response.data.items)
-    setSearchResults(response.data.items)
-    setCurrentVideo(response.data.items[0])
-  }
 
   return (
     <div>
@@ -55,10 +39,13 @@ function App() {
               <HomePage
                 setSelectedHive={setSelectedHive}
                 setSelectedInspection={setSelectedInspection}
+                
               />
             </PrivateRoute>
           }
         />
+        <Route path="/videos" element={<VideoPage />} />
+      
         <Route path="/register" element={<RegisterPage />} />
         <Route path="/login" element={<LoginPage />} />
         <Route
@@ -103,6 +90,7 @@ function App() {
           path="/inspections/:id"
           element={
             <PrivateRoute>
+
               <UpdateInspectionPage
                 selectedHive={selectedHive}
                 selectedInspection={selectedInspection}
