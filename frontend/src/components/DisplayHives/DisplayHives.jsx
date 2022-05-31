@@ -1,5 +1,6 @@
 import React from "react";
-
+import Card from 'react-bootstrap/Card'
+import Hive from './../../images/Hive.svg'
 import { useNavigate } from "react-router-dom";
 
 
@@ -24,23 +25,23 @@ const DisplayHives = (props) => {
     
     return ( 
         <>
-            <table>
-                <tbody>
                     {props.hives.map((hive)=> {
                         return(
-                            <tr key={hive.id} >
-                            <td>{hive.hive_number}</td>
-                            <td>{hive.inspection_date} </td> 
-                            <td> <button onClick={() => handleClickInspection(hive.id)}> View Inspections</button></td>
-                            <td> <button onClick={() => handleClickAddInspection(hive.id)}> Add Inspection</button></td>
-                            <td><button onClick={() => handleClick(hive.id)}>Update</button></td>
-                           
-                            
-                            </tr>
+                            <div>
+                                <Card style={{ width: '20rem' }}>
+                                <Card.Img variant="top" src={Hive} />
+                                    <Card.Body>
+                            <Card.Title>Hive Number: {hive.hive_number}</Card.Title>
+                            <Card.Title>Next Inspection: {hive.inspection_date} </Card.Title> 
+                            <button onClick={() => handleClickInspection(hive.id)}> View Inspections</button>
+                            <button onClick={() => handleClickAddInspection(hive.id)}> Add Inspection</button>
+                            <button onClick={() => handleClick(hive.id)}>Update Inspection</button>
+                            </Card.Body>
+                            </Card>
+                            </div>
+
                         )
                     })}
-                </tbody>
-            </table>
         </>
      );
 }

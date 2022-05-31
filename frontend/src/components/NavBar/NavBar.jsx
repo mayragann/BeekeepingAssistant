@@ -14,7 +14,7 @@ const Navbar = () => {
       <ul>
         <li className="brand">
           <Link to="/" style={{ textDecoration: "none", color: "white" }}>
-          <img src={Logo} alt="Tesla" />
+          <img src={Logo} alt="Bee Logo" />
             <b >Keeping </b> Assistant
             
           </Link>
