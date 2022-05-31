@@ -33,7 +33,7 @@ const VideoPage = () => {
 useEffect(() => {
     const fetchRelatedVideos = async () => {
       try {
-        let response = await axios.get(`https://www.googleapis.com/youtube/v3/search?key=${KEY}&part=snippet&maxResults=5&type=video&relatedToVideoId=${videoId}`, {
+        let response = await axios.get(`https://www.googleapis.com/youtube/v3/search?key=${KEY}&part=snippet&maxResults=3&type=video&relatedToVideoId=${videoId}`, {
         });
         setRelatedVideos(response.data.items);
       } catch (error) {
