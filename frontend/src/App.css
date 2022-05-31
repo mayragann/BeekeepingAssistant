@@ -62,3 +62,8 @@ button:hover {
   padding: 3px 7px;
   font-size: 17px;
 }
+
+.background{
+  background-image: url("./images/background.png") ;
+
+}

@@ -1,7 +1,6 @@
 // General Imports
-import { Routes, Route, useNavigate  } from "react-router-dom";
+import { Routes, Route } from "react-router-dom";
 import "./App.css";
-import background from "./images/background.svg"
 
 // Pages Imports
 import HomePage from "./pages/HomePage/HomePage";
@@ -29,7 +28,8 @@ function App() {
   const [selectedInspection, setSelectedInspection] = useState("");
 
   return (
-    <div style={{ backgroundImage: `url(${background})` }}>
+    <div className="background">
+      
       <Navbar />
       <Routes>
         <Route

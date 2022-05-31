@@ -27,8 +27,8 @@ const DisplayHives = (props) => {
         <>
                     {props.hives.map((hive)=> {
                         return(
-                            <div>
-                                <Card style={{ width: '20rem' }}>
+                            <div key={hive.id}>
+                                <Card style={{ width: '20rem' }}  >
                                 <Card.Img variant="top" src={Hive} />
                                     <Card.Body>
                             <Card.Title>Hive Number: {hive.hive_number}</Card.Title>
