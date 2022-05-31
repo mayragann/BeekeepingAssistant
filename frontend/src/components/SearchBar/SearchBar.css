@@ -5,6 +5,12 @@
     flex-direction: row;
     align-items: center;
   }
+.faq-contain {
+  margin-top: 50px;
+  align-items: center;
+  justify-content: center;
+}
+  
   .search-form-contain {
     display: flex;
     margin: auto;
