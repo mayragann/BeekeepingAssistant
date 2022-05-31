@@ -31,7 +31,7 @@ const  UpdateHive= (props) => {
         }
     }
     return ( 
-        <div className="container" >
+        <div className="form-backgrounds" >
         <form className="form" onSubmit={handleSubmit}>
             <label>
                 Hive Number:{""}

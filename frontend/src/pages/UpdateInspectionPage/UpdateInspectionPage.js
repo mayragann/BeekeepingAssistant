@@ -43,10 +43,10 @@ const  UpdateInspection= ({selectedInspection}) => {
         }
     }
     return ( 
-        <div className="container" >
+        <div className="form-backgrounds" >
         <form className="form" onSubmit={handleSubmit}>
             <label name="hive_id"
-                    value={formData.hive_id}>Update Form for Hive: {id} </label>
+                    value={formData.hive_id}><h5>Update Inspection: </h5></label>
             <label>
                 Eggs:{""}
                 <input

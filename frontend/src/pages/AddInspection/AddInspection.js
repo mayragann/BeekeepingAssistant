@@ -44,7 +44,7 @@ const  AddInspection= () => {
     }
     return ( 
         <div className="container" >
-        <form className="form" onSubmit={handleSubmit}>
+        <form className="form" onSubmit={handleSubmit} style={{ width:'40%', background: 'white', padding: '30px' }}>
             <label name="hive_id"
                     value={formData.hive_id}>New Inspection for Hive: {id} </label>
             <label>

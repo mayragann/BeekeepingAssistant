@@ -67,3 +67,16 @@ button:hover {
   background-image: url("./images/background.png") ;
 
 }
+.form-backgrounds{
+  width:40%; 
+  background: white;
+  padding: 30px;
+  margin: 0 auto;
+  overflow: auto;
+  text-align: center;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: flex-end;
+}

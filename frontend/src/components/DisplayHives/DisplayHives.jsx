@@ -35,7 +35,7 @@ const DisplayHives = (props) => {
                             <Card.Title>Next Inspection: {hive.inspection_date} </Card.Title> 
                             <button onClick={() => handleClickInspection(hive.id)}> View Inspections</button>
                             <button onClick={() => handleClickAddInspection(hive.id)}> Add Inspection</button>
-                            <button onClick={() => handleClick(hive.id)}>Update Inspection</button>
+                            <button onClick={() => handleClick(hive.id)}>Update Hive</button>
                             </Card.Body>
                             </Card>
                             </div>
