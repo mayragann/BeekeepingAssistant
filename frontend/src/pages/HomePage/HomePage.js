@@ -1,14 +1,14 @@
 import { React, useState, useEffect} from "react";
-
+import "./HomePage.css"
 import axios from "axios";
 import useAuth from "../../hooks/useAuth"
-import { Link } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import DisplayHives from "../../components/DisplayHives/DisplayHives"
 
 const HomePage = (props) => {
   const [user, token] = useAuth()
   const [hives, setHives] = useState([]);
-
+  const navigate = useNavigate()
 
 
 
@@ -35,9 +35,15 @@ const HomePage = (props) => {
     <div className="container">
       
       <DisplayHives  hives ={hives} setSelectedHive={props.setSelectedHive}  setSelectedInspection={props.setSelectedInspection}/>
-      <Link to="/addhive">Add Hive!</Link>
-      <h3>Check out our FAQ</h3>
-      <Link to="/videos">Search!</Link>
+      <div className="special">
+      <h5>Add A New Hive!</h5>
+      <button onClick={() => navigate("/addhive")}>Add!</button>
+      </div>
+
+      <div className="special">
+      <h5>Check out some Helpful Videos!</h5>
+      <button onClick={() => navigate("/videos")}>Search!</button>
+      </div>
     </div>
   );
 };

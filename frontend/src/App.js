@@ -1,7 +1,7 @@
 // General Imports
 import { Routes, Route, useNavigate  } from "react-router-dom";
 import "./App.css";
-
+import background from "./images/background.svg"
 
 // Pages Imports
 import HomePage from "./pages/HomePage/HomePage";
@@ -29,7 +29,7 @@ function App() {
   const [selectedInspection, setSelectedInspection] = useState("");
 
   return (
-    <div>
+    <div style={{ backgroundImage: `url(${background})` }}>
       <Navbar />
       <Routes>
         <Route
@@ -99,7 +99,7 @@ function App() {
           }
         />
       </Routes>
-      {/* <Footer /> */}
+      <Footer />
     </div>
   );
 }
