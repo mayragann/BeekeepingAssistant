@@ -28,7 +28,7 @@ const SearchBar = (props) => {
                 </form>
             </div>
             <div>
-            <ListGroup className="faq-contain">
+            <ListGroup className='search-contain'>
                 <h5>Common Beekeeping Questions</h5>
                 <ListGroup.Item>Finding the Queen</ListGroup.Item>
                 <ListGroup.Item>What Does Brood Look Like?</ListGroup.Item>

@@ -1,9 +1,11 @@
 .search-contain {
     display: flex;
-    max-width: 80%;
+    max-width: 50%;
     margin: auto;
     flex-direction: row;
     align-items: center;
+    background-color: white;
+    padding: 20px;
   }
 .faq-contain {
   margin-top: 50px;
@@ -11,14 +13,14 @@
   justify-content: center;
 }
   
-  .search-form-contain {
+  /* .search-form-contain {
     display: flex;
     margin: auto;
     flex-direction: row;
     align-items: center;
     padding-left: 8rem;
     padding-right: 8rem;
-  }
+  } */
   
   .search-label {
     padding-right: 0.5rem;

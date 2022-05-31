@@ -4,6 +4,7 @@ import axios from "axios";
 import useAuth from "../../hooks/useAuth"
 import { useNavigate } from "react-router-dom";
 import DisplayHives from "../../components/DisplayHives/DisplayHives"
+import DisplayAlert from "../../components/DisplayAlert/DisplayAlert";
 
 const HomePage = (props) => {
   const [user, token] = useAuth()
@@ -33,7 +34,7 @@ const HomePage = (props) => {
 
   return (
     <div className="container">
-      
+      <DisplayAlert hives={hives}/>
       <DisplayHives  hives ={hives} setSelectedHive={props.setSelectedHive}  setSelectedInspection={props.setSelectedInspection}/>
       <div className="special">
       <h5>Add A New Hive!</h5>
