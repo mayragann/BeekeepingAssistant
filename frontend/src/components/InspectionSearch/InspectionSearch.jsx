@@ -172,10 +172,11 @@ const SearchInspections = ({ inspections }) => {
 
 
   return (
-    <>
+    
+    <div className="table-data">
     <Table columns={columns} data={data}></Table>
 
-    </>
+    </div>
   );
 };
 

@@ -5,6 +5,7 @@ import useAuth from "../../hooks/useAuth";
 import DisplayInspections from "../../components/DisplayInspections/DisplayInspections";
 import InspectionTracker from "../../components/InspectionTracker/InspectionTracker";
 import SearchInspections from "../../components/InspectionSearch/InspectionSearch"
+import "./InspectionPage.css"
 
 const InspectionPage = (props) => {
   const [user, token] = useAuth();
@@ -42,8 +43,11 @@ const InspectionPage = (props) => {
         inspections={inspections}
         setSelectedHive={props.setSelectedHive}
         setSelectedInspection={props.setSelectedInspection}
-      />
+        />
+
+      <div className="search">
       <SearchInspections inspections={inspections} />
+      </div>
     </div>
 
     </>

@@ -24,8 +24,8 @@ const DisplayInspections = ({setSelectedInspection, inspections, setSelectedHive
 
                     {inspections.map((inspection)=> {
                         return(
-                            <div key={inspection.id} className="card">
-                                 <Card style={{ width: '15rem' }} >
+                            <div key={inspection.id} >
+                                 <Card style={{ width: '15rem', margin:'20px' }} >
                                  <Card.Img variant="top" src={Inspection} />
                                  <Card.Body>
                                 {/* <Card.Title>Frames w/Eggs</Card.Title>
