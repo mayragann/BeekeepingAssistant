@@ -3,6 +3,8 @@ import { useNavigate } from "react-router-dom"
 import axios from 'axios'
 import useAuth from "../../hooks/useAuth"
 import useCustomForm from "../../hooks/useCustomForm"
+import Hive from './../../images/Hive.svg'
+import Card from 'react-bootstrap/Card'
 
 let initialValues = {
     hive_number: "",
@@ -30,6 +32,9 @@ const AddHivePage = () =>{
     return(
         <div className="form-backgrounds" >
             <form className="form" onSubmit={handleSubmit}>
+            <Card style={{ width: '20rem', margin:'15px' }}>
+            <Card.Img variant="top" src={Hive} />
+            </Card>
                 <label>
                     Hive Number:{""}
                     <input

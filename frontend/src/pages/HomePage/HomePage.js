@@ -1,5 +1,4 @@
 import { React, useState, useEffect} from "react";
-import "./HomePage.css"
 import axios from "axios";
 import useAuth from "../../hooks/useAuth"
 import { useNavigate } from "react-router-dom";
@@ -36,13 +35,13 @@ const HomePage = (props) => {
     <div className="container">
       <DisplayAlert hives={hives}/>
       <DisplayHives  hives ={hives} setSelectedHive={props.setSelectedHive}  setSelectedInspection={props.setSelectedInspection}/>
-      <div className="special">
+      <div className="button-links">
       <h5>Add A New Hive!</h5>
-      <button onClick={() => navigate("/addhive")}>Add!</button>
+      <button onClick={() => navigate("/addhive")}>Add Hive!</button>
       </div>
 
-      <div className="special">
-      <h5>Check out some Helpful Videos!</h5>
+      <div className="button-links">
+      <h5>Search Helpful Videos!</h5>
       <button onClick={() => navigate("/videos")}>Search!</button>
       </div>
     </div>

@@ -43,7 +43,10 @@ button:hover {
   flex-direction: row;
   flex-wrap: wrap;
   justify-content: center;
-  align-items: flex-end;
+  background: #E4A725;
+  box-shadow: 4px 2px 5px gray;
+  padding:20px;
+  
 }
 
 .form {
@@ -52,6 +55,7 @@ button:hover {
   flex-direction: column;
   justify-content: flex-end;
   gap: 1rem;
+  color: white;
 }
 
 .form input {
@@ -61,6 +65,7 @@ button:hover {
   margin: 5px;
   padding: 3px 7px;
   font-size: 17px;
+  
 }
 
 .background{
@@ -68,8 +73,8 @@ button:hover {
 
 }
 .form-backgrounds{
-  width:40%; 
-  background: white;
+  width:30%; 
+  background: #E4A725;
   padding: 30px;
   margin: 0 auto;
   overflow: auto;
@@ -79,4 +84,37 @@ button:hover {
   flex-wrap: wrap;
   justify-content: center;
   align-items: flex-end;
+}
+
+.form-backgrounds button {
+  background: transparent;
+  border: 2px solid white;
+  color: white;
+
+}
+
+.form-backgrounds button:hover {
+  background: white;
+  color: #E4A725;
+  cursor: pointer;
+}
+
+.button-links{
+  width:50%; 
+  color: white;
+  padding: 15px;
+  margin: 0 auto;
+}
+
+.button-links button {
+  background: transparent;
+  border: 2px solid white;
+  color: white;
+
+}
+
+.button-links button:hover {
+  background: white;
+  color: #E4A725;
+  cursor: pointer;
 }
