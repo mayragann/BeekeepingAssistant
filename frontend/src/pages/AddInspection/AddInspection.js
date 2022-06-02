@@ -1,8 +1,9 @@
 import React from 'react';
-
+import Inspection from './../../images/Inspection.svg'
 import { useNavigate, useParams } from "react-router-dom"
 import axios from 'axios'
 import useAuth from "../../hooks/useAuth"
+import Card from 'react-bootstrap/Card'
 import useCustomForm from "../../hooks/useCustomForm"
 
 
@@ -43,8 +44,11 @@ const  AddInspection= () => {
         }
     }
     return ( 
-        <div className="container" >
-        <form className="form" onSubmit={handleSubmit} style={{ width:'40%', background: 'white', padding: '30px' }}>
+        <div className="form-backgrounds" >
+        <form className="form" onSubmit={handleSubmit} >
+        <Card style={{ width: '15rem', margin:'20px' }} >
+        <Card.Img variant="top" src={Inspection} />
+        </Card>
             <label name="hive_id"
                     value={formData.hive_id}>New Inspection for Hive: {id} </label>
             <label>
@@ -102,7 +106,7 @@ const  AddInspection= () => {
                     />
             </label>
             <label>
-               Pest Spotted? Yes or No - (N/A if None):{""}
+               Pest Spotted? Yes or No:{""}
                 <input
                     type="text"
                     name="pest_spotted"
@@ -111,7 +115,7 @@ const  AddInspection= () => {
                     />
             </label>
             <label>
-                Pest Treatment (N/A if none):{""}
+                Pest Treatment (none if not needed):{""}
                 <input
                     type="text"
                     name="pest_action"

@@ -1,5 +1,6 @@
 import React from 'react';
-
+import Card from 'react-bootstrap/Card'
+import Inspection from './../../images/Inspection.svg'
 import { useNavigate, useParams } from "react-router-dom"
 import axios from 'axios'
 import useAuth from "../../hooks/useAuth"
@@ -45,6 +46,8 @@ const  UpdateInspection= ({selectedInspection}) => {
     return ( 
         <div className="form-backgrounds" >
         <form className="form" onSubmit={handleSubmit}>
+        <Card style={{ width: '15rem', margin:'20px' }} >
+                                 <Card.Img variant="top" src={Inspection} /> </Card>
             <label name="hive_id"
                     value={formData.hive_id}><h5>Update Inspection: </h5></label>
             <label>

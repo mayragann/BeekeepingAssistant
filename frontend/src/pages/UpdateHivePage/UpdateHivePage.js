@@ -1,5 +1,6 @@
 import React from 'react';
-
+import Card from 'react-bootstrap/Card'
+import Hive from './../../images/Hive.svg'
 import { useNavigate, useParams } from "react-router-dom"
 import axios from 'axios'
 import useAuth from "../../hooks/useAuth"
@@ -33,6 +34,8 @@ const  UpdateHive= (props) => {
     return ( 
         <div className="form-backgrounds" >
         <form className="form" onSubmit={handleSubmit}>
+        <Card style={{ width: '20rem', margin:'15px' }}  >
+                                <Card.Img variant="top" src={Hive} /> </Card>
             <label>
                 Hive Number:{""}
                 <input
