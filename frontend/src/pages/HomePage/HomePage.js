@@ -37,7 +37,9 @@ const HomePage = (props) => {
       <DisplayAlert hives={hives}/>
 
       </div>
+      <div className="container-hive">
       <DisplayHives  hives ={hives} setSelectedHive={props.setSelectedHive}  setSelectedInspection={props.setSelectedInspection}/>
+      </div>     
       <div className="button-links">
       <h5>Add A New Hive!</h5>
       <button onClick={() => navigate("/addhive")}>Add Hive!</button>

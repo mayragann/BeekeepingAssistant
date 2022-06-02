@@ -168,3 +168,17 @@ h3 {
  
   
 }
+.container-hive {
+  margin: 0 auto;
+  max-width: 100%;
+  overflow: auto;
+  text-align: center;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+
+  padding:20px;
+
+  
+}
