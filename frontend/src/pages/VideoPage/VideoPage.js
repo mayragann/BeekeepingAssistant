@@ -47,12 +47,12 @@ useEffect(() => {
   
 
   return (
-    <div>
+    <div className="container">
       <div className="video-reg-contain"></div>
       <div><SearchBar getSearchResults={getSearchResults}/></div>
       <div className = 'video-contain'>
         <div className="video-container">
-            <div className='video-player'>
+            <div>
               <VideoPlayer videoId={videoId} 
               description={description} 
               title={title}

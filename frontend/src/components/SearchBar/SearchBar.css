@@ -1,43 +1,35 @@
 .search-contain {
-    display: flex;
-    max-width: 50%;
-    margin: auto;
+
     flex-direction: row;
     align-items: center;
-    background-color: white;
-    padding: 20px;
+    padding: 10px;
   }
-.faq-contain {
-  margin-top: 50px;
-  align-items: center;
-  justify-content: center;
-}
+
+  .search-contain button {
+    background: transparent;
+    border: 2px solid white;
+    color: white;
   
-  /* .search-form-contain {
-    display: flex;
-    margin: auto;
-    flex-direction: row;
-    align-items: center;
-    padding-left: 8rem;
-    padding-right: 8rem;
-  } */
+  }
+  
+  .search-contain button:hover {
+    background: white;
+    color: #E4A725;
+    cursor: pointer;
+  }
+
   
   .search-label {
     padding-right: 0.5rem;
-    font-size: 19px;
+   
     font-weight: bold;
+    color:white;
   }
   
   .search-input {
     width: 600px;
     height: 35px;
-    padding-left: 0.5rem;
     margin-right: 1rem;
+
   }
   
-  .search-button {
-    background-color: darkkhaki;
-    color: black;
-    font-weight: bold;
-    border-radius: 10px;
-  }

@@ -46,6 +46,7 @@ button:hover {
   background: #E4A725;
   box-shadow: 4px 2px 5px gray, -3px -2px 5px gray;
   padding:20px;
+  border-radius: 20px;
   
 }
 
@@ -85,6 +86,7 @@ button:hover {
   justify-content: center;
   align-items: flex-end;
   box-shadow: 4px 2px 5px gray, -3px -2px 5px gray;
+  border-radius: 20px;
 }
 
 .form-backgrounds button {
