@@ -129,3 +129,32 @@ h3 {
   -webkit-text-stroke-width: .5px;
   -webkit-text-stroke-color: black;
 }
+
+.form-backgrounds-added{
+  width:30%; 
+  background: #E4A725;
+  padding: 30px;
+  margin: 200px auto;
+  overflow: auto;
+  text-align: center;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: flex-end;
+  box-shadow: 4px 2px 5px gray, -3px -2px 5px gray;
+  border-radius: 20px;
+}
+
+.form-backgrounds-added button {
+  background: transparent;
+  border: 2px solid white;
+  color: white;
+
+}
+
+.form-backgrounds-added button:hover {
+  background: white;
+  color: #E4A725;
+  cursor: pointer;
+}

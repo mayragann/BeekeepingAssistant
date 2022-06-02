@@ -17,7 +17,7 @@ const RegisterPage = () => {
   );
 
   return (
-    <div className="form-backgrounds">
+    <div className="form-backgrounds-added">
       <form className="form" onSubmit={handleSubmit}>
         <label>
           Username:{" "}
