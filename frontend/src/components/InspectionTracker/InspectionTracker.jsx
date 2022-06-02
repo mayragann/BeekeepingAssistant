@@ -25,6 +25,8 @@ const InspectionTracker = ({inspections}) => {
     const options = {
 
         title: "Hive Health",
+        
+        legend: { position: "top", maxLines: 4 },
         hAxis: {
             title: "Inspections",
             titleTextStyle: {
@@ -35,7 +37,7 @@ const InspectionTracker = ({inspections}) => {
             minValue: 0
         },
         chartArea: {
-            width: "50%",
+            width: "80%",
             height: "70%"
         }
     };
@@ -55,7 +57,7 @@ const InspectionTracker = ({inspections}) => {
 
     ]
     
-    return (<Chart chartType="AreaChart" width="100%" height="400px"
+    return (<Chart chartType="AreaChart" width="100%" height="600px"
         data={data}
         options={options}/>)
 }
