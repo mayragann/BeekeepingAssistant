@@ -119,3 +119,11 @@ button:hover {
   color: #E4A725;
   cursor: pointer;
 }
+span {
+  padding-right: 25px;
+}
+h3 {
+  color: #E4A725;
+  -webkit-text-stroke-width: .5px;
+  -webkit-text-stroke-color: black;
+}

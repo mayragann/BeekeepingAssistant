@@ -124,7 +124,9 @@ const SearchInspections = ({ inspections }) => {
         return(
           
             <>
+            <div >
             <GlobalFilter filter={globalFilter} setFilter={setGlobalFilter}/>
+            </div>
             <table className="table" {...getTableProps()}>
             <thead>
               {headerGroups.map((headerGroup) => (
@@ -157,12 +159,12 @@ const SearchInspections = ({ inspections }) => {
             <CheckBox {...getToggleHideAllColumnsProps()} /> Toggle All
           </div>
           {allColumns.map(column => (
-            <div key={column.id}>
+            <span key={column.id}>
               <label>
                 <input type='checkbox' {...column.getToggleHiddenProps()} />{' '}
                 {column.Header}
               </label>
-            </div>
+            </span>
           ))}
           <br />
           
@@ -173,7 +175,7 @@ const SearchInspections = ({ inspections }) => {
 
   return (
     
-    <div className="table-data">
+    <div>
     <Table columns={columns} data={data}></Table>
 
     </div>
