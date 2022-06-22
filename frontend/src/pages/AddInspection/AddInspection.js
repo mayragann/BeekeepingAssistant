@@ -50,7 +50,7 @@ const  AddInspection= () => {
         <Card.Img variant="top" src={Inspection} />
         </Card>
             <label name="hive_id"
-                    value={formData.hive_id}>New Inspection for Hive: {id} </label>
+                    value={formData.hive_id}>New Inspection for Hive:</label>
             <label>
                 Eggs:{""}
                 <input
