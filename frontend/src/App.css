@@ -178,7 +178,10 @@ h3 {
   flex-wrap: wrap;
   justify-content: center;
 
-  padding:20px;
+  padding:20px;  
+}
 
-  
+.container-hive:empty{
+  display:none;
+
 }
